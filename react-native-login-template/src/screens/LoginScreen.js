@@ -10,10 +10,12 @@ import { theme } from '../core/theme';
 import { emailValidator, passwordValidator } from '../core/utils';
 
 
-const LoginScreen = ({ navigation }) => {
+
+const LoginScreen = ({ navigation,route }) => {
   
   const [email, setEmail] = useState({ value: '', error: '' });
   const [password, setPassword] = useState({ value: '', error: '' });
+
 
   const _onLoginPressed = () => {
     const emailError = emailValidator(email.value);
@@ -45,7 +47,10 @@ const LoginScreen = ({ navigation }) => {
         .then(function(response) {
           if(response.IsLoggedIn)
           {
-            navigation.navigate('Dashboard');
+            navigation.navigate('Dashboard', {
+              UserId: UserName,
+              otherParam: 'anything you want here',
+            });
           }
           else
           {
