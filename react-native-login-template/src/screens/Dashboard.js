@@ -13,13 +13,10 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import Background from '../components/Background';
 import Logo from '../components/LogoSmall';
 var userId;
-var theNavigation;
 
 export default class Dashboard extends React.Component {
 static navigationOptions = ({ navigation }) => {
   userId =  navigation.getParam('UserId');
-  alert(userId);
-  theNavigation = navigation;
 return {
   title: "Source Listing",
   headerStyle: {backgroundColor: "#fff"},
@@ -70,42 +67,24 @@ ShowCurrentDate=()=>{
 
 renderItem=(data)=>
 
-<Card containerStyle={{width:285}}
+<Card containerStyle={{width:270}}
   title={data.item.ProjectName}
-  imageProps={{ resizeMode: 'contain'}}
-  imageStyle={{width: 55, height: 55}}
-  image={{uri:`data:image/jpeg;base64,${data.item.Logo}`,}}
+  
   >
   <Text>
-  <Text style={{fontWeight: 'bold'}}>
-  {'Job No:'}
+  {'Job No:'+data.item.JobNo}
   </Text>
   <Text>
-  {data.item.JobNo}
+  {'Site Name:'+data.item.SiteName}
   </Text>
-  </Text>
-
   <Text>
-  <Text style={{fontWeight: 'bold'}}>
-  {'Site Name:'}
+  {'Technician Name:'+data.item.TechnicianName}
   </Text>
-  <Text>{data.item.SiteName}</Text>
-  </Text>
-
   <Text>
-  <Text style={{fontWeight: 'bold'}}>
-  {'Technician Name:'}
+  {'Job Status:'+data.item.JobStatus}
   </Text>
-  <Text>{data.item.TechnicianName}</Text>
-  </Text>
-
-  <Text>
-  <Text >
-  {'Job Status:'}
-  </Text>
-  <Text>{data.item.JobStatus}</Text>
-  </Text>
- 
+  <Image style={{width: 55, height: 55,resizeMode: 'contain'}}
+          source={{uri:`data:image/jpeg;base64,${data.item.Logo}`,}}/>
   <Button
     onPress={_onLoginPressed}
     buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
@@ -146,8 +125,8 @@ return(
 )}
 }
 }
-const _onLoginPressed = ({ navigation }) => {
-  theNavigation.navigate('JobDetails');
+const _onLoginPressed = () => {
+  alert('buttonpressed');
 };
 const styles = StyleSheet.create({
   container: {
