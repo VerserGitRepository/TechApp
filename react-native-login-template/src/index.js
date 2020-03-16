@@ -3,6 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import {
   HomeScreen,
+  BurgerMenu,
   LoginScreen,
   RegisterScreen,
   ForgotPasswordScreen,
@@ -12,6 +13,7 @@ import {
 const Router = createStackNavigator(
   {
     HomeScreen,
+    BurgerMenu,
     LoginScreen,
     RegisterScreen,
     ForgotPasswordScreen,
