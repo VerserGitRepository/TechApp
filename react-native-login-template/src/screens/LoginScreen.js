@@ -47,7 +47,7 @@ const LoginScreen = ({ navigation,route }) => {
         .then(function(response) {
           if(response.IsLoggedIn)
           {
-            navigation.navigate('BurgerMenu', {
+            navigation.navigate('Dashboard', {
               UserId: UserName,
               otherParam: 'anything you want here',
             });
