@@ -24,7 +24,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.VerserTechnologies.TechApp",
+      "buildNumber": "1.0.0"
     },
     "description": "Simple login template created with React Native.",
     "githubUrl": "https://github.com/venits/react-native-login-template"
