@@ -2,7 +2,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import {LoginScreen} from './screens';
-import {HomeScreen,Dashboard,BurgerMenu} from './screens';
+import {HomeScreen,Dashboard,BurgerMenu,scanbarcodeApp} from './screens';
 
 const Router = createStackNavigator(
   {
@@ -10,6 +10,7 @@ const Router = createStackNavigator(
     LoginScreen,
     Dashboard,
     BurgerMenu,
+    scanbarcodeApp
  
    
   },
