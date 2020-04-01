@@ -8,6 +8,8 @@ import TextInput from '../components/TextInput';
 import BackButton from '../components/BackButton';
 import { theme } from '../core/theme';
 import { emailValidator, passwordValidator } from '../core/utils';
+import JobDetails from './JobDetails';
+import dashboard from './Dashboard';
 
 
 
@@ -47,10 +49,9 @@ const LoginScreen = ({ navigation,route }) => {
         .then(function(response) {
           if(response.IsLoggedIn)
           {
-            navigation.navigate('scanbarcodeApp', {
-              UserId: UserName,
-              otherParam: 'anything you want here',
-            });
+            return(
+              <dashboard />
+            );
           }
           else
           {
