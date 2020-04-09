@@ -1,26 +1,17 @@
-//This is an example code for NavigationDrawer//
+
 import React, { Component } from 'react';
-//import react in our code.
 import { View, Image, TouchableOpacity } from 'react-native';
-// import all basic components
-
-//For React Navigation 3+
-//import {
-//  createStackNavigator,
-//  createDrawerNavigator,
-//  createAppContainer,
-//} from 'react-navigation';
-
-//For React Navigation 4+
 import {createAppContainer} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
-import Screen1 from './Dashboard';
-import Screen2 from './JobDetails';
-import Screen3 from './LoginScreen';
-import LoginScreen from './LoginScreen';
+import {Screen1} from './Dashboard';
+import {Screen2} from './JobDetails';
+import { Screen4} from './LoginScreen';
+import {Screen3} from './SSNLookUp';
+
 var userId;
 var theNavigation;
+
 class BurgerMenu extends Component {
    
   toggleDrawer = ({theNavigation}) => {
@@ -43,7 +34,7 @@ class BurgerMenu extends Component {
   }
 }
 
-const FirstActivity_StackNavigator = createStackNavigator({
+const Dashboard_StackNavigator = createStackNavigator({
   //All the screen from the Screen1 will be indexed here
   First: {
     screen: Screen1,
@@ -58,7 +49,7 @@ const FirstActivity_StackNavigator = createStackNavigator({
   },
 });
 
-const Screen2_StackNavigator = createStackNavigator({
+const JObDetails_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
   Second: {
     screen: Screen2,
@@ -73,10 +64,25 @@ const Screen2_StackNavigator = createStackNavigator({
   },
 });
 
-const Screen3_StackNavigator = createStackNavigator({
+const SSNLookup_StackNavigator = createStackNavigator({
   //All the screen from the Screen3 will be indexed here
   Third: {
     screen: Screen3,
+    navigationOptions: ({ navigation }) => ({
+      title: 'SSNLookup',
+      headerLeft: <BurgerMenu navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#FF9800',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const Login_StackNavigator = createStackNavigator({
+  //All the screen from the Screen1 will be indexed here
+  First: {
+    screen: Screen4,
     navigationOptions: ({ navigation }) => ({
       title: 'Login',
       headerLeft: <BurgerMenu navigationProps={navigation} />,
@@ -92,21 +98,28 @@ const DrawerNavigatorExample = createDrawerNavigator({
   //Drawer Optons and indexing
   Screen1: {
     //Title
-    screen: FirstActivity_StackNavigator,
+    screen: Dashboard_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Dashboard',
     },
   },
   Screen2: {
     //Title
-    screen: Screen2_StackNavigator,
+    screen: JObDetails_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Job Details',
     },
   },
   Screen3: {
     //Title
-    screen: LoginScreen,
+    screen: SSNLookup_StackNavigator,
+    navigationOptions: {
+      drawerLabel: 'SSNLookUp',
+    },
+  },
+  Screen4: {
+    //Title
+    screen: Login_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Login',
     },
